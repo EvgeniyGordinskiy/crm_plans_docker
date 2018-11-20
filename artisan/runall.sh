@@ -15,6 +15,7 @@ echo "Running artisan"
 $runuser -l apache -c "$composer install -d $artisan  -v"
 
 $runuser -l apache -c "$php $artisan/artisan migrate"
+$runuser -l apache -c "$php $artisan/artisan db:seed"
 $runuser -l apache -c "$php $artisan/artisan cache:clear"
 $runuser -l apache -c "$php $artisan/artisan config:cache"
 $runuser -l apache -c "$php $artisan/artisan optimize"

@@ -9,7 +9,7 @@ services:
     - ../crm_plans_backend:/data/crm_plans/httpdocs
     depends_on:
     - mysql_plans
-    - php-fpm_plans
+    - php-fpm
   shell_plans:
     build: ./shell
     container_name: shell_plans
@@ -17,8 +17,8 @@ services:
     - ../crm_plans_backend:/data/crm_plans/httpdocs
     depends_on:
     - mysql_plans
-    - php-fpm_plans
-  php-fpm_plans:
+    - php-fpm
+  php-fpm:
     build: ./php-fpm
     volumes:
     - ../crm_plans_backend:/data/crm_plans/httpdocs
@@ -44,7 +44,7 @@ services:
       MYSQL_DATABASE: 'crm_plans'
       MYSQL_ROOT_PASSWORD: 'admin'
       MYSQL_USER: 'root'
-      MYSQL_PASSWORD: 'admind'
+      MYSQL_PASSWORD: 'admin'
       MYSQL_ALLOW_EMPTY_PASSWORD: 'false'
     ports:
       - 52000:3306
